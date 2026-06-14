@@ -1,0 +1,68 @@
+#menuLateral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  background-color: var(--corFundoDestaque);
+  padding: 1rem 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+#logo {
+  margin-top: 1rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  object-fit: contain;
+}
+
+#menuLateral .btn-global {
+  width: 75%;
+  height: 3.5rem;
+  margin-top: 1.5rem;
+  border-radius: 1rem;
+}
+
+/* Responsividade Média (Tablets/Notebooks pequenos) */
+@media (max-width: 1024px) {
+  #menuLateral {
+    width: 20%;
+  }
+
+  #menuLateral .btn-global {
+    font-size: 1rem;
+    height: 3rem;
+    width: 85%;
+  }
+}
+
+/* Responsividade Mobile (Telas pequenas) */
+@media (max-width: 768px) {
+  #menuLateral {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  #logo {
+    width: 25%;
+    margin: 0;
+  }
+
+  #menuLateral .btn-global {
+    width: auto;
+    height: auto;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+  }
+}
