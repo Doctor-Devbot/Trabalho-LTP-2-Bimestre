@@ -2,7 +2,7 @@ class Jogador:
     def __init__(self, nome, email):
         self.nome = nome
         self.email = email
-        
+
     def get_nome(self):
         return self.nome
     def set_nome(self, nome):
@@ -14,3 +14,9 @@ class Jogador:
     def set_email(self, email):
         self.email = email
         return self.email
+    
+    def to_dic(self):
+        return {
+            "nome": self.nome,
+            "email": self.email
+        }
