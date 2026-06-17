@@ -40,6 +40,13 @@ class Atividade:
     def set_resposta(self, resposta):
         self.resposta = resposta
 
+    def gerar_questao(self):
+        return {
+            "id_atividade": self.id_atividade,
+            "enunciado": self.enunciado,
+            "alternativas": self.alternativas
+        }
+
     def to_dic(self):
         return {
             "id_atividade": self.id_atividade,
