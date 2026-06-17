@@ -7,7 +7,7 @@ atividade_bp = Blueprint('atividade', __name__)
 @atividade_bp.route("/atividade", methods=["POST"])
 def cadastrar_atividade():
     nova_atividade = request.get_json()
-    atividade_criada = atividade_dao.create(nova_atividade["id_atividade"], nova_atividade["enunciado"])
+    atividade_criada = atividade_dao.create(nova_atividade["id_atividade"], nova_atividade["enunciado"], nova_atividade.get("alternativas", []))
     if atividade_criada is None:
         return {"erro": "ID de atividade já cadastrado"}, 400
     return atividade_criada, 201
@@ -33,7 +33,7 @@ def remover_atividade(id_atividade):
     atividade = atividade_dao.delete(id_atividade)
     if atividade is None:
         return {"erro": "Atividade não encontrada"}, 404
-    return {"mensagem": "Atividade removida com sucesso"}, 200
+    return atividade, 200
 
 # PUT /atividade/1
 @atividade_bp.route("/atividade/<int:id_atividade>", methods=["PUT"])

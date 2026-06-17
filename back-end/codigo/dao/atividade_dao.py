@@ -3,15 +3,15 @@ from model.atividade import Atividade
 class AtividadeDAO:
     def __init__(self):
         self._database = [
-            Atividade(1, "Escreva uma consulta SQL que liste todos os clientes cadastrados."),
-            Atividade(2, "Crie uma consulta SQL utilizando WHERE para mostrar apenas os produtos com preço maior que 100.")
+            Atividade(1,"Qual comando SQL seleciona dados?",["SELECT", "INSERT", "DELETE", "UPDATE"]),
+            Atividade(2,"Qual cláusula filtra registros?",["WHERE", "ORDER BY", "GROUP BY", "JOIN"])
         ]
     
-    def create(self, id_atividade, enunciado):
+    def create(self, id_atividade, enunciado, alternativas):
         existente = next((a for a in self._database if a.id_atividade == id_atividade), None)
         if existente:
             return None
-        atividade = Atividade(id_atividade, enunciado)
+        atividade = Atividade(id_atividade, enunciado, alternativas)
         self._database.append(atividade)
         return atividade.to_dic()
    

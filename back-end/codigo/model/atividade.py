@@ -1,9 +1,10 @@
 class Atividade:
-    def __init__(self, id_atividade, enunciado, jogador=None, resposta=None):
+    def __init__(self, id_atividade, enunciado, alternativas=None, jogador=None, resposta=None):
         self.id_atividade = id_atividade
         self.enunciado = enunciado
         self.jogador = jogador
         self.resposta = resposta
+        self.alternativas = alternativas or []
 
     def get_enunciado(self):
         return self.enunciado
@@ -17,11 +18,30 @@ class Atividade:
     def set_id(self, id_atividade):
         self.id_atividade = id_atividade
 
+    def get_alternativas(self):
+        return self.alternativas
+
+    def set_alternativas(self, alternativas):
+        self.alternativas = alternativas
+
+    def get_jogador(self):
+        return self.jogador
+
+    def set_jogador(self, jogador):
+        self.jogador = jogador
+
+    def get_resposta(self):
+        return self.resposta
+
+    def set_resposta(self, resposta):
+        self.resposta = resposta
+
     def to_dic(self):
         return {
             "id_atividade": self.id_atividade,
-            "enunciado": self.enunciado
+            "enunciado": self.enunciado,
+            "alternativas": self.alternativas
         }
 
-    #def gerar_questão()
-        
+    def __str__(self):
+        return f"Atividade(id={self.id_atividade}, enunciado='{self.enunciado}', alternativas={self.alternativas})"

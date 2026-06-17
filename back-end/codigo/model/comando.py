@@ -1,6 +1,6 @@
 class Comando:
     def __init__(self, titulo, descricao):
-        self.tituto = titulo
+        self.titulo = titulo
         self.descricao = descricao
 
     def get_titulo(self):
@@ -12,3 +12,6 @@ class Comando:
         return self.descricao
     def set_descricao(self, descricao):
         self.descricao = descricao
+
+    def __str__(self):
+        return f"Comando(titulo='{self.titulo}', descricao='{self.descricao}')"

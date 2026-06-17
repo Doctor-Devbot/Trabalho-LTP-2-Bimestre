@@ -13,3 +13,6 @@ class Modulo:
         return self.descricao
     def set_descricao(self, descricao):
         self.descricao = descricao
+
+    def __str__(self):
+        return f"Modulo(titulo='{self.titulo}', descricao='{self.descricao}', qtd_listas={len(self.listas_atividade)})"

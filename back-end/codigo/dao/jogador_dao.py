@@ -3,8 +3,8 @@ from model.jogador import Jogador
 class JogadorDAO:
     def __init__(self):
         self._database = [
-            Jogador("Marco", "marco@email.com"),
-            Jogador("Julia", "julia@email.com")
+            Jogador("Marco", "marco@gmail.com"),
+            Jogador("Julia", "julia@gmail.com")
         ]
 
     def create(self, nome, email):

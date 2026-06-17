@@ -6,3 +6,6 @@ class Resposta:
         return self.correta
     def set_correta(self, correta):
         self.correta = correta
+
+    def __str__(self):
+        return f"Resposta(correta={self.correta})"

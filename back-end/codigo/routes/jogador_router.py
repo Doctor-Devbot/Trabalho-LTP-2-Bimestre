@@ -24,7 +24,7 @@ def todos_jogadores():
     return jogador_dao.retrieve_all(), 200
 
 
-# GET /jogador/email@email.com
+# GET /jogador/email%40gmail.com
 @jogador_bp.route("/jogador/<string:email>", methods=["GET"])
 def buscar_jogador(email):
     jogador_encontrado = jogador_dao.retrieve_by_email(email)
@@ -33,16 +33,16 @@ def buscar_jogador(email):
     return jogador_encontrado, 200
 
 
-# DELETE /jogador/email@email.com
+# DELETE /jogador/email%40gmail.com
 @jogador_bp.route("/jogador/<string:email>", methods=["DELETE"])
 def remover_jogador(email):
     jogador = jogador_dao.delete(email)
     if jogador is None:
         return {"erro": "Jogador não encontrado"}, 404
-    return {"mensagem": "Jogador removido com sucesso"}, 200
+    return jogador, 200
 
 
-# PUT /jogador/email@email.com
+# PUT /jogador/email%40gmail.com
 @jogador_bp.route("/jogador/<string:email>", methods=["PUT"])
 def atualizar_nome(email):
     dados = request.get_json()

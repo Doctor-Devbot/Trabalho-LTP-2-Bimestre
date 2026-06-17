@@ -20,3 +20,6 @@ class Jogador:
             "nome": self.nome,
             "email": self.email
         }
+    
+    def __str__(self):
+        return f"Jogador(nome='{self.nome}', email='{self.email}')"
