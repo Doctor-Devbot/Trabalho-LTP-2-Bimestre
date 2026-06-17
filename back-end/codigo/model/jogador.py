@@ -1,25 +1,31 @@
 class Jogador:
     def __init__(self, nome, email):
-        self.nome = nome
-        self.email = email
+        self.__nome = nome
+        self.__email = email
 
     def get_nome(self):
-        return self.nome
+        return self.__nome
+
     def set_nome(self, nome):
-        self.nome = nome
-        return self.nome
-    
+        if not nome.strip():
+            raise ValueError("Nome não pode ser vazio")
+
+        self.__nome = nome
+
     def get_email(self):
-        return self.email
+        return self.__email
+
     def set_email(self, email):
-        self.email = email
-        return self.email
-    
+        if "@" not in email:
+            raise ValueError("Email inválido")
+
+        self.__email = email
+
     def to_dic(self):
         return {
-            "nome": self.nome,
-            "email": self.email
+            "nome": self.__nome,
+            "email": self.__email
         }
-    
+
     def __str__(self):
-        return f"Jogador(nome='{self.nome}', email='{self.email}')"
+        return f"Jogador(nome='{self.__nome}', email='{self.__email}')"

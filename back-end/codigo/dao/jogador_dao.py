@@ -8,7 +8,7 @@ class JogadorDAO:
         ]
 
     def create(self, nome, email):
-        existente = next((j for j in self._database if j.email == email), None)
+        existente = next((j for j in self._database if j.get_email() == email), None)
         if existente:
             return None
         jogador = Jogador(nome, email)
@@ -16,7 +16,7 @@ class JogadorDAO:
         return jogador.to_dic()
 
     def retrieve_by_email(self, email):
-        jogador = next((j for j in self._database if j.email == email), None)
+        jogador = next((j for j in self._database if j.get_email() == email), None)
         if jogador:
             return jogador.to_dic()
         return None
@@ -25,14 +25,14 @@ class JogadorDAO:
         return [j.to_dic() for j in self._database]
 
     def update_nome(self, email, nome):
-        jogador = next((j for j in self._database if j.email == email), None)
+        jogador = next((j for j in self._database if j.get_email() == email), None)
         if jogador:
-            jogador.nome = nome
+            jogador.set_nome(nome)
             return jogador.to_dic()
         return None
 
     def delete(self, email):
-        jogador = next((j for j in self._database if j.email == email), None)
+        jogador = next((j for j in self._database if j.get_email() == email), None)
         if jogador:
             self._database.remove(jogador)
             return jogador.to_dic()

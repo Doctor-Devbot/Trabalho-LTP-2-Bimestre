@@ -9,8 +9,8 @@ from model.comando import Comando
 jogador = Jogador("Gabriel", "gabriel@email.com")
 print(jogador)
 
-jogador.set_nome("Gabriel P.")
-jogador.set_email("gabrielp@email.com")
+jogador.set_nome("Gabriel Alves")
+jogador.set_email("gabrielalves@email.com")
 
 print(jogador.get_nome())
 print(jogador.get_email())
@@ -75,6 +75,7 @@ comando = Comando(
 )
 
 print(comando)
+
 print(comando.get_titulo())
 print(comando.get_descricao())
 
@@ -89,3 +90,21 @@ print(atividade.to_dic())
 
 print("\nDicionário do jogador:")
 print(jogador.to_dic())
+
+# Teste das validações
+print("\nTestando validações:")
+
+try:
+    jogador.set_email("emailinvalido")
+except ValueError as e:
+    print("Erro:", e)
+
+try:
+    atividade.set_enunciado("")
+except ValueError as e:
+    print("Erro:", e)
+
+try:
+    atividade.set_id(-1)
+except ValueError as e:
+    print("Erro:", e)

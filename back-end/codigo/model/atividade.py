@@ -10,12 +10,16 @@ class Atividade:
         return self.enunciado
 
     def set_enunciado(self, enunciado):
+        if not enunciado:
+            raise ValueError("O enunciado não pode ser vazio")
         self.enunciado = enunciado
 
     def get_id(self):
         return self.id_atividade
 
     def set_id(self, id_atividade):
+        if id_atividade <= 0:
+            raise ValueError("O ID deve ser maior que zero")
         self.id_atividade = id_atividade
 
     def get_alternativas(self):
